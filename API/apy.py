@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify, render_template, redirect
 from bson import json_util
 from pymongo import MongoClient
-from endpoints import species_, insert_data, species_month, species_province, delete_data, update_data , get_close, query_map, get_read_df, map_, get_map_pred, get_sp_df
+from endpoints import species_, insert_data, species_month, species_province, delete_data, update_data, query_map, get_read_df, map_, get_map_pred, get_sp_df
 from flask_pymongo import PyMongo
-from functions import create_dict_insert, get_genus, get_date, get_coord, extract_info_form, extract_info_delete, extract_info_update, create_dict_update, extract_info_geo, create_dict_coord, get_info_class, get_info_sp, get_province_month, get_province_species
+from MongoConnections import queries_close
+from functions import create_dict_insert, get_genus, get_date, get_coord, extract_info_form, extract_info_delete, extract_info_update, create_dict_update, extract_info_geo, get_coord_query, get_info_class, get_info_sp, get_province_month, get_province_species
 from json import JSONEncoder    
 import pymongo
 from flask_session import Session
@@ -79,9 +80,9 @@ def update():
 @app.route('/look', methods=['GET', 'POST'])
 def look():
     if request.method == "POST":
-        location = extract_info_geo("location")
-        q = create_dict_coord(location)
-        return str(get_close(q, "species")) 
+        location = extract_info_geo()
+        lat, long = get_coord_query(location)
+        return str(queries_close(long, lat, "species")) 
     return render_template('queries.html')
 
 @app.route('/map')
@@ -95,17 +96,16 @@ def maps():
         df = get_read_df(class_)
         map_(df, class_)
     return render_template("index.html")
-
+'''
 @app.route('/map/pred')
 def get_sp():
     return render_template("form_map_pred.html")
+'''
 
 @app.route('/map/pred', methods=['GET', 'POST'])
 def map_preds():
-    if request.method == "POST":
-        sp = get_info_sp()
-        df = get_sp_df(sp)
-        get_map_pred(df)
+    df = get_sp_df()
+    get_map_pred(df)
     return render_template("index2.html")
 
 app.run(debug=True)

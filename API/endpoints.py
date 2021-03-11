@@ -23,9 +23,9 @@ def species_province(dict_ ): #esta funcion es para obtener todas las especies p
     query = {'$and': [{'province':dict_["locality"]}, {'species':dict_["species"]}]}
     res = read(query, {"locality": 1, "species":1, "common_name": 1, "_id":1}, "species")
     if any_empty_vals: #para chequear si nos pasan todas los parametros del formulario
-        return render_template("read_species_month_error.html")
+        return render_template("read_province_species_empty.html")
     elif len(res) == 0: # para chequear si hay en nuestra base de datos
-        return render_template("read_province_month_not.html")
+        return render_template("read_province_species_noexist.html")
     else:
         return res
 
@@ -81,15 +81,6 @@ def update_data (dict_, coll):
         return render_template('update_noexist.html')
     else:
         update(query, "species", dict_)
-
-def get_close (dict_, coll):
-    print(dict_)
-    res = queries_close(dict_["long"], dict_["lat"], "species")
-    for element in dict_.values():
-        if isinstance(element, float):
-            return res
-        else:
-            return "Lo siento me tienes que pasar unas coordenadas"
        
 def query_map(): #esta funcion es para obtener todas las especies para una determinada epoca
     query = {}
@@ -122,15 +113,15 @@ def get_read_df(class_): #para convertir la query qu nos pasan para los mapas(es
     df = pd.DataFrame(res, columns = ["long", "lat", "class", "species"])
     return df
 
-def get_sp_df(species): #para convertir la query qu nos pasan para los mapas(es decir clase) en un dataframe y luego poder insertarlo en folium
-    query = {"species": f"{species}"}
-    project = {"lat": 1, "long": 1, "species": 1, "province": 1,  "_id": 0}
-    res = list(read(query, project, "model"))
+def get_sp_df(): #para convertir la query qu nos pasan para los mapas(es decir clase) en un dataframe y luego poder insertarlo en folium
+    query = {}
+    project = {"lat": 1, "long": 1, "species": 1, "province": 1, "pred":1, "_id": 0}
+    res = list(read(query, project, 'model'))
     # lo convierto a dataframe para luego poder meterlo en la funcion de folium
     df = pd.DataFrame(res, columns = ["long", "lat", "species", "province", "pred"])
     print(df)
     return df
-    
+
 
 def get_map_pred(df):
     geo_json = r'API/spain_provinces.geojson'

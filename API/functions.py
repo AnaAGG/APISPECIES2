@@ -102,21 +102,15 @@ def extract_info_delete(Species_Id):
     _id = request.form.get(f'{Species_Id}')
     return _id
 
-def extract_info_geo(location):
+def extract_info_geo():
     #para exrtaer la informacion de la localidad que se crea en el formulario de buscar por provincia
-    location = request.form.get(f'{location}')
+    location = request.form.get("location")
     print(location)
     return location
 
-def create_dict_coord (location ):
+def get_coord_query(location):
     lat, long = get_coord(location)
-    dict_ = {}
-    #creo un diccionario con los datos del form
-    for i in ("lat", "long" ):
-        dict_[i] = locals()[i]
- 
-    dict_2 = dict(x for x in dict_.items() if any(x)) 
-    return dict_2
+    return lat, long
 
 def get_info_class(): #para el el mapa de calor. Nos pasaran la clase para poder sacar una de las clases ploteadas
     class_ = request.form.get("class_")

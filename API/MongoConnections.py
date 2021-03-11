@@ -26,22 +26,23 @@ def update(query, coll, update, database = db):
     return update
 
 def queries_close(long, lat, coll):
+    print(lat, long)
     query = [{
-    "$geoNear": {'near': [long, lat],
+    "$geoNear": {'near': [lat, long],
                  'distanceField': 'distance',
-                 'maxDistance': 2000 , #2000 m de las coordenadas que le pasemos
                  'distanceMultiplier': 6371, 
                  'spherical'  : True, 
                  '$num': 10}}, 
-    {"$limit": 10}, 
-    { '$project' : { 'locality' : 1 , 'province' : 1, 'common_name': 1, '_id': 0, 'distance': 1}}]
-    try: # para que no me salte un error de que no pasan la ubicacion. 
+                {"$limit": 10}, 
+                { '$project' : { 'locality' : 1 , 'province' : 1, 'common_name': 1, '_id': 0, 'distance': 1}}]
+    try: # para que no me salte un error de que no pasan la ubicacion.
         geoloc = db[coll].aggregate(query)
         response_json = json.loads(dumps(geoloc))
         return response_json
-    except:
+    except: 
         return render_template('queries_error.html')
 
+    
 
 def queries_maps(coll , database = db):
     query = {}
