@@ -92,9 +92,11 @@ This graph shows the number of data that has been added to the database by years
 ![species](https://github.com/AnaAGG/To-see-species-SpeciesAPI/blob/main/Images/species_class.png)
 
 
-The following figure shows, according to class, the number of records that enter the database as a function of the month of the year.
+The following figures show a characterization of the main predictor variables (maximum temperature, minimum temperature, elevation and precipitation) of the physical conditions for each of the localities that we include in the database.
 
-![temp_max](https://github.com/AnaAGG/APISPECIES2/blob/main/Images/max_temp.png)
-
+![temp_max](https://github.com/AnaAGG/APISPECIES2/blob/main/Images/max_temp.png)  
+![temp_min](https://github.com/AnaAGG/APISPECIES2/blob/main/Images/min_temp.png)  
+![elevation](https://github.com/AnaAGG/APISPECIES2/blob/main/Images/elevation.png)  
+![precip](https://github.com/AnaAGG/APISPECIES2/blob/main/Images/precip.png)  
 ### Requirements to replicate the methodology
 > requirements.txt
