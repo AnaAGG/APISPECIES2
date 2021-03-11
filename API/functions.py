@@ -37,6 +37,27 @@ def create_dict_insert (city, date, locality, common_name, species, kingdom = "A
         dict_[i] = locals()[i]
     return dict_
 
+
+def get_province_species (): #extraemos la informacion del formulario para el endpoint de provincia/common
+    locality = request.form.get("province")
+    species = request.form.get("species")
+    dict_ = {}
+    for i in ("locality", "species"):
+        dict_[i] = locals()[i]
+    print(dict_)
+    return dict_
+
+def get_province_month (): #extraemos la informacion del formulario para el endpoint de provincia/common
+    locality = request.form.get("province")
+    month = request.form.get("month")
+    print(month)
+    dict_ = {}
+    for i in ("locality", "month"):
+        dict_[i] = locals()[i]
+    print(dict_)
+    return dict_
+    
+
 def extract_info_form(location, vernacularname, scientificname, Date, class_ ):
     #Extraemos toda la informacion recibida del formulario del insert
         location = request.form.get(f"{location}")
@@ -99,4 +120,9 @@ def create_dict_coord (location ):
 
 def get_info_class(): #para el el mapa de calor. Nos pasaran la clase para poder sacar una de las clases ploteadas
     class_ = request.form.get("class_")
+    return class_
+
+
+def get_info_sp(): #para el el de clusters. Nos pasaran la sp para poder sacar una de las clases ploteadas
+    class_ = request.form.get("species")
     return class_

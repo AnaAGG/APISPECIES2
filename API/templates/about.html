@@ -13,26 +13,39 @@
 </style>
 <h1>About us</h1>
 <p>This project is part of the final project of the Ironhack Data Analytics Bootcamp. Specifically, this project was born out of necessity ... blah blah blah I'm NOT imaginative</p>
-<h1>I decided to follow my passion and maek this project</h1>
+<h1>I decided to follow my passion and make this project</h1>
 <p>SOME EXAMPLES OF API CALLS<p>
-<p><u>authors = ("http://127.0.0.1:5000/province")</u> <i>All the species you can see in a province</i></p>
-<p>Returns:</p>
-        <p>[{'_id': '6044ec0734b38296f136b6af'},</p>
-        <p>{'locality': 'Acantilados Jarama'},</p>
-        <p>{'species': 'Fringilla coeleb'},</p>
-        <p>{'common_name': 'Common Chaffinch'},</p>
-<p><u>authors = ("http://127.0.0.1:5000/province/comun")</u> <i>Information for a given species in a specific province </i></p>
-    <p>Returns:</p>
-        <p>[{'_id': '6044ec0734b38296f136b6b9'},</p>
-        <p>{'locality': 'Embalse de Pinilla'},</p>
-        <p>{'species': 'Podiceps cristatus'},</p>
-        <p>{'common_name': 'Somormujo lavanco'},</p>
-<p><u>authors = ("http://127.0.0.1:5000/province/month")</u> <i>Information for a given species in a specific month </i></p>  
-    <p>Returns:</p>
-        <p>[{'_id': '6044ec0634b38296f136b262'},</p>
-        <p>{'locality': 'Betanzos'},</p>
-        <p>{'species': 'Lissotriton boscai'},</p>
-        <p>{'common_name': 'Bosca's Newt'},</p>
+    <center>      
+      <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header">"http://127.0.0.1:5000/province/month"</div>
+        <div class="card-body">
+          <h5 class="card-title">Information for a given species in a specific month</h5>
+          <p class="card-text">[{'_id': '6044ec0634b38296f136b262'},</p>
+          <p>{'locality': 'Betanzos'},</p>
+          <p>{'species': 'Lissotriton boscai'},</p>
+          <p>{'common_name': 'Bosca's Newt'}]</p>
+        </div>
+      </div>
+      <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+        <div class="card-header">"http://127.0.0.1:5000/province/comun"</div>
+        <div class="card-body">
+          <h5 class="card-title">Information for a given species in a specific province</h5>
+          <p class="card-text">[{'_id': '6044ec0734b38296f136b6b9'},</p>
+          <p>{'locality': 'Embalse de Pinilla'},</p>
+          <p>{'species': 'Podiceps cristatus'},</p>
+          <p>{'common_name': 'Somormujo lavanco'}]</p>
+        </div>
+      </div>
+      <div class="card text-dark bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">"http://127.0.0.1:5000/province"</div>
+        <div class="card-body">
+          <h5 class="card-title">All the species you can see in a province</h5>
+          <p class="card-text">[{'_id': '6044ec0734b38296f136b6af'},</p>
+          <p>{'locality': 'Acantilados Jarama'},</p>
+          <p>{'species': 'Fringilla coeleb'},</p>
+          <p>{'common_name': 'Common Chaffinch'}</p>
+        </div>
+        <center></div>
 </head>
     </body>
         {% extends "template2.html" %}

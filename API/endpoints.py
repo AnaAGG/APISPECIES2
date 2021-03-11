@@ -12,9 +12,31 @@ import os
 def species_(query, location):
     res = read(query, {"locality": 1, "species":1, "common_name": 1, "_id":1}, "species")
     if len(res) < 1:
-        return "{Sorry.. no tenemos datos para tu busqueda}"
+        return render_template("province_noexist.html")
     elif not location:
         return "{Sorry necesito una localizacion}"
+    else:
+        return res
+
+def species_province(dict_ ): #esta funcion es para obtener todas las especies para una determinada epoca
+    any_empty_vals = bool(len(['' for x in dict_.values() if not x]))
+    query = {'$and': [{'province':dict_["locality"]}, {'species':dict_["species"]}]}
+    res = read(query, {"locality": 1, "species":1, "common_name": 1, "_id":1}, "species")
+    if any_empty_vals: #para chequear si nos pasan todas los parametros del formulario
+        return render_template("read_species_month_error.html")
+    elif len(res) == 0: # para chequear si hay en nuestra base de datos
+        return render_template("read_province_month_not.html")
+    else:
+        return res
+
+def species_month(dict_ ): #esta funcion es para obtener todas las especies para una determinada epoca
+    any_empty_vals = bool(len(['' for x in dict_.values() if not x]))
+    query = {'$and': [{'province':dict_["locality"]}, {'month':dict_["month"]}]}
+    res = read(query, {"locality": 1, "species":1, "common_name": 1, "_id":1}, "species")
+    if any_empty_vals:
+        return render_template("read_species_month_error.html")
+    elif len(res) == 0:
+        return render_template("read_province_month_not.html")
     else:
         return res
 
@@ -45,21 +67,6 @@ def delete_data (_id, coll):
         delete(query, "species")
         return render_template('delete_success.html')
 
-def species_comun(province, sp ): #esta funcion es para obtener todas las especies para una determinada epoca
-    query = {'$and': [{'province':{'$regex': f"{province}", "$options" :'i'}}, {'common_name':{'$regex': f"{sp}", "$options" :'i'}}]}
-    res = read(query, {"locality": 1, "species":1, "common_name": 1, "_id":1}, "species")
-    if len(res) < 1:
-        return render_template("read_species_province_error2.html")
-    else:
-        return res
-
-def species_month(province, month ): #esta funcion es para obtener todas las especies para una determinada epoca
-    query = {'$and': [{'province':{'$regex': f"{province}", "$options" :'i'}}, {'month':{'$regex': f"{month}", "$options" :'i'}}]}
-    res = read(query, {"locality": 1, "species":1, "common_name": 1, "_id":1}, "species")
-    if len(res) < 1:
-        return render_template("read_species_month_error.html")
-    else:
-        return res
 
 def update_data (dict_, coll):
     print(dict_)
@@ -114,6 +121,5 @@ def get_read_df(class_): #para convertir la query qu nos pasan para los mapas(es
     # lo convierto a dataframe para luego poder meterlo en la funcion de folium
     df = pd.DataFrame(res, columns = ["long", "lat", "class", "species"])
     return df
-    
-    
+
 
