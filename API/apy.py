@@ -96,11 +96,6 @@ def maps():
         df = get_read_df(class_)
         map_(df, class_)
     return render_template("index.html")
-'''
-@app.route('/map/pred')
-def get_sp():
-    return render_template("form_map_pred.html")
-'''
 
 @app.route('/map/pred', methods=['GET', 'POST'])
 def map_preds():

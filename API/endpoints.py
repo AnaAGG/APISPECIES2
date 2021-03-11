@@ -34,7 +34,7 @@ def species_month(dict_ ): #esta funcion es para obtener todas las especies para
     query = {'$and': [{'province':dict_["locality"]}, {'month':dict_["month"]}]}
     res = read(query, {"locality": 1, "species":1, "common_name": 1, "_id":1}, "species")
     if any_empty_vals:
-        return render_template("read_species_month_error.html")
+        return render_template("read_province_month_not.html")
     elif len(res) == 0:
         return render_template("read_province_month_not.html")
     else:
