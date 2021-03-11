@@ -53,11 +53,11 @@ def create_geoloc(path_csv, nombre): # To create a DDBB with one collection ad g
     '''
     
     #recibe el dataframe
-    df = pd.read_csv(path_csv, sep = ";")
+    df = pd.read_csv(path_csv, sep = ";", encoding='latin-1')
     
     #Crea el loc con los geopuntos.
     gdf = gdp.GeoDataFrame(df, geometry= gdp.points_from_xy(df.long, df.lat ))
-    gdf.columns=['long','lat','locality','province', 'year', 'month', 'kingdom', 'class', 'family', 'genus', 'species', 'common_name', 'loc' ]
+    gdf.columns=['long','lat','locality','province', 'community', 'year', 'month', 'kingdom', 'class', 'family', 'genus', 'species', 'common_name', 'loc' ]
     
     #Lo aplicamos a toda la columna
     gdf['loc']= gdf['loc'].apply(lambda x:shapely.geometry.mapping(x))
