@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template, redirect
 from bson import json_util
 from pymongo import MongoClient
-from endpoints import species_, insert_data, species_month, species_province, delete_data, update_data , get_close, query_map, get_read_df, map_
+from endpoints import species_, insert_data, species_month, species_province, delete_data, update_data , get_close, query_map, get_read_df, map_, get_map_pred, get_sp_df
 from flask_pymongo import PyMongo
 from functions import create_dict_insert, get_genus, get_date, get_coord, extract_info_form, extract_info_delete, extract_info_update, create_dict_update, extract_info_geo, create_dict_coord, get_info_class, get_info_sp, get_province_month, get_province_species
 from json import JSONEncoder    
@@ -95,9 +95,7 @@ def maps():
         df = get_read_df(class_)
         map_(df, class_)
     return render_template("index.html")
-app.run(debug=True)
 
-'''
 @app.route('/map/pred')
 def get_sp():
     return render_template("form_map_pred.html")
@@ -108,5 +106,7 @@ def map_preds():
         sp = get_info_sp()
         df = get_sp_df(sp)
         get_map_pred(df)
-    return render_template("index.html")
-'''
+    return render_template("index2.html")
+
+app.run(debug=True)
+

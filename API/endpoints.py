@@ -122,4 +122,29 @@ def get_read_df(class_): #para convertir la query qu nos pasan para los mapas(es
     df = pd.DataFrame(res, columns = ["long", "lat", "class", "species"])
     return df
 
+def get_sp_df(species): #para convertir la query qu nos pasan para los mapas(es decir clase) en un dataframe y luego poder insertarlo en folium
+    query = {"species": f"{species}"}
+    project = {"lat": 1, "long": 1, "species": 1, "province": 1,  "_id": 0}
+    res = list(read(query, project, "model"))
+    # lo convierto a dataframe para luego poder meterlo en la funcion de folium
+    df = pd.DataFrame(res, columns = ["long", "lat", "species", "province", "pred"])
+    print(df)
+    return df
+    
 
+def get_map_pred(df):
+    geo_json = r'API/spain_provinces.geojson'
+
+    mapa = folium.Map(location=[40.416775,-3.703790 ], tiles='CartoDB dark_matter', zoom_start=6)
+    mapa
+
+    mapa.choropleth(
+            geo_data = geo_json, 
+            data = df, 
+            columns = ["province", "pred"], 
+            key_on = "feature.properties.name", 
+            fill_color = "YlGnBu", 
+            fill_opacity = 1, 
+            line_opacity = 1, 
+            legend_name = "Clusters", 
+            smooth_factor = 0)

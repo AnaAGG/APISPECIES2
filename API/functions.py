@@ -1,6 +1,6 @@
 from geopy.geocoders import Nominatim
 from bson import json_util
-from flask import request, jsonify
+from flask import request, jsonify  
 import calendar
 from MongoConnections import insert
 from bson import ObjectId
@@ -38,7 +38,7 @@ def create_dict_insert (city, date, locality, common_name, species, kingdom = "A
     return dict_
 
 
-def get_province_species (): #extraemos la informacion del formulario para el endpoint de provincia/common
+def get_province_species(): #extraemos la informacion del formulario para el endpoint de provincia/common
     locality = request.form.get("province")
     species = request.form.get("species")
     dict_ = {}
@@ -126,3 +126,5 @@ def get_info_class(): #para el el mapa de calor. Nos pasaran la clase para poder
 def get_info_sp(): #para el el de clusters. Nos pasaran la sp para poder sacar una de las clases ploteadas
     class_ = request.form.get("species")
     return class_
+
+    
