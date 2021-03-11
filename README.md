@@ -94,7 +94,7 @@ This graph shows the number of data that has been added to the database by years
 
 The following figure shows, according to class, the number of records that enter the database as a function of the month of the year.
 
-PONER AQUI LA GRAFIQUITA
+![temp_max](https://github.com/AnaAGG/APISPECIES2/blob/main/Images/max_temp.png)
 
 ### Requirements to replicate the methodology
 > requirements.txt
