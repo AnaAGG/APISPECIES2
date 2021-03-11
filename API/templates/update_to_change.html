@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body><center>
+    <form method="POST" action="/update">
+        <header>
+
+            <h1>Have you seen any errors in the database? You can change it here!!!!</h1>
+
+          </header>
+        <b> To update data it is mandatory introduce the _id of the object</b><br>
+            id <input type="id" value="id" name="_Id" tabindex=1 /><br />
+        <br>
+        <br>
+        <b>What data do you want to change? Fill in only those fields that you consider necessary</b><br>
+        <br>
+        <b>Field 1: Where did you see the new species?</b><br>
+            Locality <input type="Location" value="" name="location" tabindex=2 /><br />
+        <br>
+        <b>Field 2:Insert the vernacular name of the species<b><br>
+            Vernacular name <input type="Vernacular Name" value="" name="vernacularname" tabindex=3><br />
+        <br>
+        <b>Field 3: Insert the scientific name of the species<b><br>
+            Scientific name <input type="Scientific name" value="" name="scientificname" tabindex=4><br />
+        <br>
+        <b>Field 4: What class does the new species belong to?<b><br>
+        <label for="class">Choose a class:</label>
+
+        <select name="class_" id="class">
+              <option value=" "> </option>
+              <option value="Mammals">Mammals</option>
+              <option value="Aves">Aves</option>
+              <option value="Amphibia">Amphibia</option>
+              <option value="Reptilia">Reptilia</option>
+              <option value="Actinopterygii">Actinopterygii</option>
+        </select><br>
+        <br>
+        <b>Field 5: Month<b><br>
+            <label for="month">Choose a month:</label>
+            <select name="month" id="month">
+                <option value=" "> </option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="Jun">Jun</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+            </select><br>
+         <br>
+         <b>Field 5: Year<b><br>
+            <label for="year">Choose a month:</label>
+            <select name="year" id="year">
+                <option value=" "> </option>
+                  <option value="2010">2010</option>
+                  <option value="2011">2011</option>
+                  <option value="2012">2012</option>
+                  <option value="2013">2013</option>
+                  <option value="2014">2014</option>
+                  <option value="2015">2015</option>
+                  <option value="2016">2016</option>
+                  <option value="2017">2017</option>
+                  <option value="2018">2018</option>
+                  <option value="2019">2019</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+            </select>
+         <br>
+        <br>
+        <input type="submit">
+    </form>
+    <center></body>
+</body>
+{% extends "template2.html" %}
+{% block content %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><center>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <center></head>
+<body><center>
+    <form method="POST" action="/map">
+        <header>
+
+            <h1>Time to saw the data in a map </h1>
+        
+            <p id="intro">Eiuge un grupo taxonomico</p>
+        
+          </header>
+          <br>
+        <b>Field 1: What class does the new species belong to?<b><br>
+         <input type="checkbox" value="Mammalia" name="class_" >Mammalia<br />
+         <input type="checkbox" value="Aves" name="class_" >Aves<br />
+         <input type="checkbox" value="Amphibia" name="class_" >Amphibia<br />
+         <input type="checkbox" value="Reptilia" name="class_" >Reptilia<br />
+         <input type="checkbox" value="Actinopterygii" name="class_" >Actinopterygii<br />
+         <br>
+        <br>
+        <input type="submit">
+        <br>
+        <br>
+    </form>
+{% extends "template2.html" %}
+{% block content %}
+{% endblock %}
+<center>/body>
+
+</html>

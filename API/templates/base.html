@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<form>
+ <input type="button" value="Back to menu" onclick="history.go(-1)">
+</form>
+
+<body>
+  <header>{% block head %}{% endblock %}</header>
+  {% block body %}{% endblock %}
+</body>
+<form>
+ <input type="button" value="Back to menu" onclick="history.go(-1)">
+</form>

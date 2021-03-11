@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><center>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <center></head>
+<body><center>
+    <form method="POST" action="/look">
+        <header>
+
+            <h1>You have little time, I tell you what is closest to you </h1>
+        
+            <p id="intro">Tell me where you are, town or city and I'll return the 10 closest locations to see what you want</p>
+        
+          </header>
+        <br>
+        <b>Field 1: Where did you see the new species?</b><br>
+        Locality <input type="Location" value="Location" name="location" tabindex=1 /><br />
+        <br>
+        <br>
+        <input type="submit">
+        <br>
+        <br>
+        <img src="https://res.cloudinary.com/seana20/image/upload/v1615117381/API_Final%20Proyect/CSC_0708_lwcozo.jpg">
+    </form>
+{% extends "template2.html" %}
+{% block content %}
+{% endblock %}
+<center>/body>
+
+</html>

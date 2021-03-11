@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <form method="POST" action="/province/comun">
+        <header>
+
+            <h1>🗺️Where do you want to go to see species?🗺️</h1>
+        
+            <p id="intro">Textito!</p>
+        
+          </header>
+        <b>Field 1: Where do you want to go?</b><br>
+        Location <input type="Province" value="Province" name="province"><br>
+        <br>
+        <b>Field 2: What species do you want to see?</b><br>
+        Species <input type="specie" value="Specie" name="species">
+        <input type="submit">
+    </form>
+</body>
+</body>
+{% extends "template2.html" %}
+{% block content %}
+{% endblock %}
+</body>
+</html>
