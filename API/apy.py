@@ -104,9 +104,7 @@ def get_sp():
 
 @app.route('/map/pred', methods=['GET', 'POST'])
 def map_preds():
-    df = get_sp_df()
-    get_map_pred(df)
-    return render_template("index2.html")
+    return render_template("choro.html")
 
 app.run(debug=True)
 

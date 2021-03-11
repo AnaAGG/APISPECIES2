@@ -40,9 +40,7 @@ def queries_close(long, lat, coll):
         response_json = json.loads(dumps(geoloc))
         return response_json
     except: 
-        return render_template('queries_error.html')
-
-    
+        return render_template('queries_error.html')    
 
 def queries_maps(coll , database = db):
     query = {}

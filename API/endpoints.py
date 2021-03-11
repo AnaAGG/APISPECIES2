@@ -115,11 +115,16 @@ def get_read_df(class_): #para convertir la query qu nos pasan para los mapas(es
 
 def get_sp_df(): #para convertir la query qu nos pasan para los mapas(es decir clase) en un dataframe y luego poder insertarlo en folium
     query = {}
-    project = {"lat": 1, "long": 1, "species": 1, "province": 1, "pred":1, "_id": 0}
-    res = list(read(query, project, 'model'))
+    project = {"lat": 1, "long": 1, "species": 1, "province": 1, "pred_cluster":1, "_id": 0}
+    res = read(query, project, 'pruebita3')
     # lo convierto a dataframe para luego poder meterlo en la funcion de folium
-    df = pd.DataFrame(res, columns = ["long", "lat", "species", "province", "pred"])
-    print(df)
+    df = pd.DataFrame(res, columns = ["species", "province", "pred_cluster"])
+    print(type(df))
+    print(df.dtypes)
+    df.astype(str)['province'].map(lambda x:  type(x))
+    df.astype(str)['species'].map(lambda x:  type(x))
+    df.astype(str)['pred_cluster'].map(lambda x:  type(x))
+    print(df.dtypes)
     return df
 
 
@@ -132,7 +137,7 @@ def get_map_pred(df):
     mapa.choropleth(
             geo_data = geo_json, 
             data = df, 
-            columns = ["province", "pred"], 
+            columns = ["province", "pred_cluster"], 
             key_on = "feature.properties.name", 
             fill_color = "YlGnBu", 
             fill_opacity = 1, 
