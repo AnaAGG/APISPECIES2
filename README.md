@@ -8,10 +8,10 @@
 > 4 - Perform a CLustering Anlysis
 > 5 - Plot some results
 
-`API folder`  
-`Notebooks folder`  
+`API folder` : contains the main file of the API and all the files necessary for its operation
+`Notebooks folder`: data access script for the API, connection with Mongo, creation of maps and figures, clustering model 
 `Output folder`: contains all the data files that have been generated throughout the project  
-`Images folders`
+`Images folders`: contains some descriptive figures of the API content
 # Collection data
 
 To store all the date we used a MongaDBCompass. The database is made up of one collection that will receive or give the information through the API. Next I show a table of the information contained in the database and how the codes that you will receive when you make the requests
@@ -33,7 +33,7 @@ To store all the date we used a MongaDBCompass. The database is made up of one c
 
 # API description
 
-QuoteAPI is an API to collect famous quotes from different authors throughout history. This API will collect citations from different disciplines which form the basis of the API structure and therefore of the database in mongo.
+This project is part of the final project of the Ironhack Data Analytics Bootcamp. The main objective of this API is to improve accessibility to the data and information that are usually found dispersed, in different formats and with difficult access. The data of the different domains of knowledge that refer to biodiversity (taxonomy, phylogenetics, morphology, ecology) have been scattered in various formats, in natural history collections and in observational reports field, as well as in the scientific literature and in various reports from those who manage aspects related to biodiversity, that is, the called gray literature. The main objective of this project is support efforts to understand diversity biological system of the country and favor the access of this information to people who are fond of nature..
 
 
 ## Endpoints Structure
