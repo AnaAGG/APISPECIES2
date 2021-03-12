@@ -8,10 +8,10 @@
 > 4 - Perform a CLustering Anlysis
 > 5 - Plot some results
 
-`API folder` : contains the main file of the API and all the files necessary for its operation
-`Notebooks folder`: data access script for the API, connection with Mongo, creation of maps and figures, clustering model 
-`Output folder`: contains all the data files that have been generated throughout the project  
-`Images folders`: contains some descriptive figures of the API content
+`API folder` : contains the main file of the API and all the files necessary for its operation  
+`Notebooks folder`: data access script for the API, connection with Mongo, creation of maps and figures, clustering model     
+`Output folder`: contains all the data files that have been generated throughout the project    
+`Images folders`: contains some descriptive figures of the API content  
 # Collection data
 
 To store all the date we used a MongaDBCompass. The database is made up of one collection that will receive or give the information through the API. Next I show a table of the information contained in the database and how the codes that you will receive when you make the requests
