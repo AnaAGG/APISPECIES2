@@ -103,4 +103,6 @@ The following figures show a characterization of the main predictor variables (m
 > Precipitation  
 ![precip](https://github.com/AnaAGG/APISPECIES2/blob/main/Images/precip.png)  
 ### Requirements to replicate the methodology
+
+# Requirements
 > requirements.txt
